@@ -5,8 +5,12 @@ function useInput(initialValue) {
   const reset = () => {
     setValue('')
   }
+
+  const setWrapper = (e) => {
+    setValue(e.target.value)
+  }
   const bind = {
-    value,
+    value: value,
     onChange: e => {
       setValue(e.target.value)
     }
