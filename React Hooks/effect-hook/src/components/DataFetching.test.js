@@ -20,3 +20,8 @@ it('render', async () => {
     const { getByText } = renderComponent();
     await waitForElement(() => getByText('title test'))
 });
+
+it('render', async () => {
+    const { getByText } = renderComponent();
+    await waitForElement(() => getByText('title test'))
+});
