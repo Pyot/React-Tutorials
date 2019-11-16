@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import './App.css'
-import ClassCounterOne from './components/ClassCounterOne'
-import HookCounterOne from './components/HookCounterOne'
-import ClassMouse from './components/ClassMouse'
-import HookMouse from './components/HookMouse'
-import MouseContainer from './components/MouseContainer'
-import IntervalClassCounter from './components/IntervalClassCounter'
-import IntervalHookCounter from './components/IntervalHookCounter'
-import DataFetching from './components/DataFetching'
+import React, { Component } from 'react';
+import './App.css';
+import ClassCounterOne from './components/ClassCounterOne';
+import HookCounterOne from './components/HookCounterOne';
+import ClassMouse from './components/ClassMouse';
+import HookMouse from './components/HookMouse';
+import MouseContainer from './components/MouseContainer';
+import IntervalClassCounter from './components/IntervalClassCounter';
+import IntervalHookCounter from './components/IntervalHookCounter';
+import DataFetching from './components/DataFetching';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends Component {
 	render() {
@@ -20,10 +21,15 @@ class App extends Component {
 				{/* <MouseContainer /> */}
 				{/* <IntervalClassCounter></IntervalClassCounter> */}
 				{/* <IntervalHookCounter></IntervalHookCounter> */}
-				<DataFetching />
+
+				<Router>
+					<Switch>
+						<Route exact path="/DataFetching" component={DataFetching} />
+					</Switch>
+				</Router>
 			</div>
-		)
+		);
 	}
 }
 
-export default App
+export default App;
