@@ -8,7 +8,9 @@ import MouseContainer from './components/MouseContainer';
 import IntervalClassCounter from './components/IntervalClassCounter';
 import IntervalHookCounter from './components/IntervalHookCounter';
 import DataFetching from './components/DataFetching';
+import Fetch2 from './components/Fetch2';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router'
 
 class App extends Component {
 	render() {
@@ -21,12 +23,10 @@ class App extends Component {
 				{/* <MouseContainer /> */}
 				{/* <IntervalClassCounter></IntervalClassCounter> */}
 				{/* <IntervalHookCounter></IntervalHookCounter> */}
-
-				<Router>
 					<Switch>
-						<Route exact path="/DataFetching" component={DataFetching} />
+						<Route exact path="/" component={DataFetching} />
+						<Route exact path="/fetch2" component={Fetch2} />
 					</Switch>
-				</Router>
 			</div>
 		);
 	}

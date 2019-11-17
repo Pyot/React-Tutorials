@@ -17,7 +17,11 @@ function DataFetching() {
 				)
 			.catch(err => {
 				console.log(err)
-			})
+			});
+			const abortController =new AbortController()
+			return ()=>{
+				abortController.abort()
+			}
 	}, [idFromButtonClick])
 
 	const handleClick = (e) => {
