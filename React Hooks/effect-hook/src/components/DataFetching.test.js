@@ -43,22 +43,22 @@ const renderComponent = () =>
 	);
 
 
-it('render', async () => {
-	const { getByText, container } = renderComponent();
-	await waitForElement(() => getByText('title test'));
-});
+// it('render', async () => {
+// 	const { getByText, container } = renderComponent();
+// 	await waitForElement(() => getByText('title test'));
+// });
 
-it('render', async () => {
-	const { getByText } = renderComponent();
-	await waitForElement(() => getByText('title test'));
-});
+// it('render', async () => {
+// 	const { getByText } = renderComponent();
+// 	await waitForElement(() => getByText('title test'));
+// });
 
 it('render second component', async()=>{
 	const { getByText } = renderComponent();
 	history.push('/fetch2')
 	await waitForElement(() => getByText('title test 2'));
-	history.push('/')
-	await waitForElement(() => getByText('title test'));
+	// history.push('/')
+	// await waitForElement(() => getByText('title test'));
 
 
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { cleanup } from '@testing-library/react'
 
 function DataFetching() {
 	const [post, setPost] = useState({})
@@ -7,7 +8,10 @@ function DataFetching() {
 	const [idFromButtonClick, setIdFromButtonClick] = useState(1)
 
 	useEffect(() => {
-		fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+		const abortController = new AbortController();
+		const signal = abortController.signal;
+		
+		fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {signal: signal})
 			.then(res => {
 				return res.json()
 			}).then(res => {
@@ -18,10 +22,11 @@ function DataFetching() {
 			.catch(err => {
 				console.log(err)
 			});
-			const abortController =new AbortController()
-			return ()=>{
+			
+			return function cleanup() {
 				abortController.abort()
 			}
+			
 	}, [idFromButtonClick])
 
 	const handleClick = (e) => {
